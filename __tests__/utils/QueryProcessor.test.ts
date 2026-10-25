@@ -32,6 +32,14 @@ describe("QueryProcessor", () => {
         expect(QueryProcessor("What is 81 plus 36?")).toBe("117");
     });
 
+    test('should add three numbers', () => {
+        expect(QueryProcessor("What is 34 plus 60 plus 24?")).toBe("118");
+    });
+
+    test('should return primes', () => {
+        expect(QueryProcessor("Which of the following numbers are primes: 91, 69, 61, 6, 14?")).toBe("61");
+    });
+
     test('should return name', () => {
         const query = "What is your name?";
         const response: string = QueryProcessor(query);
