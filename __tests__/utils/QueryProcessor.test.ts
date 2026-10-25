@@ -24,11 +24,19 @@ describe("QueryProcessor", () => {
         expect(response).toBe("iibrohim");
     });
 
+    test('should return the largest number', () => {
+        expect(QueryProcessor("Which of the following numbers is the largest: 16, 85, 67?")).toBe("85");
+    });
+
+    test('should add two numbers', () => {
+        expect(QueryProcessor("What is 81 plus 36?")).toBe("117");
+    });
+
     test('should return name', () => {
         const query = "What is your name?";
         const response: string = QueryProcessor(query);
         expect(response).toBe((
-            "Iroda"
+            "iroda"
           ));
     })
 });
