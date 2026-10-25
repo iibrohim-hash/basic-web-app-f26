@@ -45,6 +45,20 @@ describe("QueryProcessor", () => {
         expect(QueryProcessor("What is 60 to the power of 47?")).toBe("374204295122575954001453518729877913600000000000000000000000000000000000000000000000");
     });
 
+    test('should respect operator precedence', () => {
+        expect(QueryProcessor("What is 60 plus 64 multiplied by 36?")).toBe("2364");
+        expect(QueryProcessor("What is 29 multiplied by 65 plus 76?")).toBe("1961");
+    });
+
+    test('should compute scrabble score', () => {
+        expect(QueryProcessor("What is the scrabble score of zoo?")).toBe("12");
+        expect(QueryProcessor("What is the scrabble score of september?")).toBe("15");
+    });
+
+    test('should find anagram', () => {
+        expect(QueryProcessor("Which of the following is an anagram of listen: inlets, google, banana, enlists?")).toBe("inlets");
+    });
+
     test('should return name', () => {
         const query = "What is your name?";
         const response: string = QueryProcessor(query);
