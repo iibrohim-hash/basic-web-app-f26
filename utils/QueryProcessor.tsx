@@ -43,6 +43,16 @@ export default function QueryProcessor(query: string): string {
     return (parseInt(times[1], 10) * parseInt(times[2], 10)).toString();
   }
 
+  const power = query.match(/what is (\d+) to the power of (\d+)/i);
+  if (power) {
+    const base = BigInt(power[1]);
+    let result = BigInt(1);
+    for (let i = 0; i < parseInt(power[2], 10); i++) {
+      result = result * base;
+    }
+    return result.toString();
+  }
+
   const minus = query.match(/what is (\d+) minus (\d+)/i);
   if (minus) {
     return (parseInt(minus[1], 10) - parseInt(minus[2], 10)).toString();

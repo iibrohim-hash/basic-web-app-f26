@@ -40,6 +40,11 @@ describe("QueryProcessor", () => {
         expect(QueryProcessor("Which of the following numbers are primes: 91, 69, 61, 6, 14?")).toBe("61");
     });
 
+    test('should compute powers exactly', () => {
+        expect(QueryProcessor("What is 2 to the power of 10?")).toBe("1024");
+        expect(QueryProcessor("What is 60 to the power of 47?")).toBe("374204295122575954001453518729877913600000000000000000000000000000000000000000000000");
+    });
+
     test('should return name', () => {
         const query = "What is your name?";
         const response: string = QueryProcessor(query);
